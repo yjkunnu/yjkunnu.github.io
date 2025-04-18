@@ -42,11 +42,11 @@
 
 
 
-            const url = "https://script.google.com/macros/s/AKfycbzxrlQwD-F5b0f2LRsPCVRSX3YxDkXb4cigI32ii3JsqC6ALU79CeZhKdKHNXmIb6Ripw/exec?" + body;
+            const url = "https://script.google.com/macros/s/AKfycbyd3IQetse_dJsFP5TkjTTB4EkWwejQ6YGc7LandK9Gp0grNgGnY4R1LjvEmbe4V1p-5g/exec" + body;
 
             fetch(url)
                 .then(() => {
-                    alert("정보가 성공적으로 전송되었습니다!");
+                    alert("전송 성공!");
             })
             .catch(error => {
                 alert("전송 실패: " + error.message);
