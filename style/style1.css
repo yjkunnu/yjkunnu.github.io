@@ -67,6 +67,7 @@ body {
     height: 300px;
     border-radius: 50%;
     margin-right: 2rem;
+    object-fit: cover;
   }
   
   .contact h2 {
