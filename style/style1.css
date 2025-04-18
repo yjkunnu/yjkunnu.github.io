@@ -157,3 +157,9 @@ body {
   .project-table img:hover {
     transform: scale(1.05);
   }
+
+
+  footer{
+    position: fixed;
+    bottom: 0;
+  }
