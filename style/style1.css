@@ -158,6 +158,15 @@ body {
     transform: scale(1.05);
   }
 
+.main-banner {
+    background-image: url("../media/wallpaper.jpg"); 
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
   footer{
     position: fixed;
