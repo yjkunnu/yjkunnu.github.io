@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+
+    <title>구글 앱스 스크립트로 정보 전달</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <script>
+
+        function submitForm(event) {
+
+            event.preventDefault();
+
+            console.log("폼 제출 함수 실행됨!");
+
+
+            const name = document.getElementById("name").value;
+
+            const email = document.getElementById("email").value;
+
+            const country = document.getElementById("country").value;
+
+            const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+                           .map(cb => cb.value).join(", ");
+    
+            const os = document.querySelector('input[name="os"]:checked')?.value || "";
+            const favorite = document.getElementById("favorite").value;
+
+            const feedback = document.getElementById("feedback").value;
+
+            const body = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&country=${encodeURIComponent(country)}&interest=${encodeURIComponent(interests)}&os=${encodeURIComponent(os)}&favorite=${encodeURIComponent(favorite)}&feedback=${encodeURIComponent(feedback)}`;
+
+            console.log("name:", name);
+            console.log("email:", email);
+            console.log("country:", country);
+            console.log("interest:", interests);
+            console.log("os:", os);
+            console.log("favorite:", favorite);
+            console.log("feedback:", feedback);
+
+
+
+            const url = "https://script.google.com/macros/s/AKfycbzxrlQwD-F5b0f2LRsPCVRSX3YxDkXb4cigI32ii3JsqC6ALU79CeZhKdKHNXmIb6Ripw/exec?" + body;
+
+            fetch(url)
+                .then(() => {
+                    alert("정보가 성공적으로 전송되었습니다!");
+            })
+            .catch(error => {
+                alert("전송 실패: " + error.message);
+            });
+        }        
+        
+    </script>
+
+</head>
+
+<body>
+
+
+    <h2>정보 제출 폼</h2>
+
+    <form onsubmit="submitForm(event)">
+        <fieldset>
+          <legend>기본 정보</legend>
+          
+          <label for="name">이름</label><br>
+          <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+      
+          <label for="email">이메일</label><br>
+          <input type="email" id="email" name="email" placeholder="example@example.com">
+      
+          <label for="country">국가</label><br>
+          <input list="countries" name="country" id="country" placeholder="국가를 선택하세요">
+          <datalist id="countries">
+            <option value="대한민국">
+            <option value="중국">
+            <option value="일본">
+          </datalist>
+        </fieldset>
+      
+        <fieldset>
+          <legend>관심 정보</legend>
+      
+          <label>관심 분야</label>
+          <input type="checkbox" name="interest" value="컴퓨터"> 컴퓨터
+          <input type="checkbox" name="interest" value="음악"> 음악
+          <input type="checkbox" name="interest" value="스포츠"> 스포츠
+      
+          <label>선호 OS</label>
+          <input type="radio" name="os" value="Windows"> Windows
+          <input type="radio" name="os" value="Mac"> Mac
+          <input type="radio" name="os" value="Linux"> Linux
+      
+          <label for="favorite">좋아하는 색상</label>
+          <select id="favorite" name="favorite">
+            <option value="">선택하세요</option>
+            <option value="빨강">빨강</option>
+            <option value="초록">초록</option>
+            <option value="파랑">파랑</option>
+          </select>
+      
+          <label for="feedback">하고 싶은 말</label>
+          <textarea id="feedback" name="feedback" rows="4" placeholder="하고 싶은 말을 적어주세요"></textarea>
+        </fieldset>
+      
+        <button type="submit">제출</button>
+    </form>
+
+</body>
+
+</html>
+
+
+
