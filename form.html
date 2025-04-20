@@ -40,17 +40,29 @@
             console.log("favorite:", favorite);
             console.log("feedback:", feedback);
 
+            fetch("https://script.google.com/macros/s/AKfycbz2rqr2awXa6Cf2FY_W3TDHOgdddWdKFrFT-P4wx1DMCKQLA2OV_zZuEpAypCK1PwS0/exec", {
 
+              method: "POST",
 
-             const url = "https://script.google.com/macros/s/AKfycbz2rqr2awXa6Cf2FY_W3TDHOgdddWdKFrFT-P4wx1DMCKQLA2OV_zZuEpAypCK1PwS0/exec" + body;
+              mode: "no-cors",
 
-            fetch(url)
-                .then(() => 
-                    alert("전송 성공!"))
-            
-            .catch(error => 
-                alert("전송 실패: " + error.message));
-            
+              headers: {
+
+                  "Content-Type": "application/x-www-form-urlencoded"
+
+              },
+
+              body: body
+
+          }).then(response => {
+
+              alert("정보가 성공적으로 전송되었습니다!");
+
+          }).catch(error => {
+
+              alert("전송 실패: " + error.message);
+
+          });
         }        
         
     </script>
