@@ -9,6 +9,6 @@ Contact & Channels
 프로젝트  
 
 ## Contact & Channels
-이메일: yj927kim@gmail.com
-연락처: 01012345678
-깃허브 프로필: https://github.com/yjkunnu
+이메일: yj927kim@gmail.com  
+연락처: 01012345678  
+깃허브 프로필: https://github.com/yjkunnu  
